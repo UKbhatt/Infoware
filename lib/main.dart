@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:form/homeScreen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:form/AudioPlayer/splashScreen.dart';
+import 'package:form/AudioPlayer/statemangement/Audio.dart';
+import './form/FormValidation.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(
+    BlocProvider(
+      create: (_) => AudioBloc(),
+      child: const MyApp(),
+    ),
+  );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Homescreen(),
+      home: SplashScreen(),
     );
   }
 }
