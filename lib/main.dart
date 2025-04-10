@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:form/Api+Bloc/charachterSplash.dart';
+import 'package:form/Api+Bloc/characterRepo.dart';
+import 'package:form/Api+Bloc/homescreen.dart';
+import 'package:form/Api+Bloc/stateManagement/event.dart';
+import 'package:form/Api+Bloc/stateManagement/bloc.dart';
 import 'package:form/AudioPlayer/splashScreen.dart';
 import 'package:form/AudioPlayer/statemangement/Audio.dart';
 import './form/FormValidation.dart';
@@ -19,9 +24,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CharacterBloc>(
+          create: (context) =>  CharacterBloc(CharacterRepository())..add(LoadCharacters()),
+        ),
+        BlocProvider<AudioBloc>(
+          create: (context) => AudioBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Application',
+        theme: ThemeData(primarySwatch: Colors.deepPurple),
+        home: const Charachtersplash(), 
+      ),
     );
   }
 }
