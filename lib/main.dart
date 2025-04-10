@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Application',
         theme: ThemeData(primarySwatch: Colors.deepPurple),
-        home: const Charachtersplash(), 
+        home: const SplashScreen(), 
       ),
     );
   }

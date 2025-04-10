@@ -8,13 +8,10 @@ class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
-
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    // Navigate after delay
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
@@ -22,7 +19,6 @@ class _SplashScreenState extends State<SplashScreen> {
       );
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Circular card with icon
             Container(
               width: 160,
               height: 160,
@@ -48,10 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-
             const SizedBox(height: 30),
-
-            // App title
             const Text(
               "Soundify",
               style: TextStyle(

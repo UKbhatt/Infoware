@@ -13,7 +13,6 @@ class Charachtersplash extends StatefulWidget {
 class _CharachtersplashState extends State<Charachtersplash> {
   late Timer _timer;
   int _gradientIndex = 0;
-
   final List<List<Color>> gradients = [
     [Colors.green.shade900, Colors.teal.shade700],
     [Colors.teal.shade700, Colors.green.shade700],
@@ -23,7 +22,6 @@ class _CharachtersplashState extends State<Charachtersplash> {
   @override
   void initState() {
     super.initState();
- 
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const CharacterScreen()),

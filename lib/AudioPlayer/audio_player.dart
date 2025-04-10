@@ -13,7 +13,6 @@ class PlayerScreen extends StatelessWidget {
     final seconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
     return '$minutes:$seconds';
   }
-
   @override
   Widget build(BuildContext context) {
     final audioBloc = context.read<AudioBloc>();
@@ -67,7 +66,6 @@ class PlayerScreen extends StatelessWidget {
                         final totalSeconds = total.inSeconds > 0
                             ? total.inSeconds.toDouble()
                             : 1.0;
-
                         return Column(
                           children: [
                             Slider(
